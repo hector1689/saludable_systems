@@ -1,5 +1,5 @@
  <?php 
-include ("conexion.php");
+include ("includes/conexion.php");
 
 
 $consulta = "SELECT * FROM datos_personales ORDER BY id_paciente";
