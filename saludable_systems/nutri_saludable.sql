@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-08-2016 a las 03:19:35
+-- Tiempo de generación: 07-02-2017 a las 02:42:27
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.5.30
 
@@ -78,7 +78,8 @@ CREATE TABLE `acta_diabetico` (
 --
 
 INSERT INTO `acta_diabetico` (`id_diabetico`, `comidas_dia`, `comidas_casa`, `comidas_fuera`, `horario_comida`, `prepara_alimento`, `come_entrecomidas`, `que_come`, `modificacion_alimentaria`, `motivo_modificacion`, `como_modificacion`, `apetito_alimentacion`, `hora_ambre`, `alimento_preferido`, `alimento_nopreferido`, `alimento_malestar`, `alergia_alimento`, `suplemento_complemento`, `cual_suplemento`, `dosis_suplemento`, `motivo_suplemento`, `actitud_paciente`, `motivo_actitud`, `sal_comida`, `grasa_casa`, `dieta_especial`, `cuantas_dieta`, `tipo_dieta`, `hace_dieta`, `tiempo_dieta`, `razon_dieta`, `apego_dieta`, `resultado_dieta`, `medicamentos_peso`, `cuales_medicamentos`, `desayuno_acta`, `colacion_desayuno`, `comida_acta`, `colacion_comida`, `cena_acta`, `colacion_cena`, `vasos_agua`, `vasos_bebida`, `cambios_fin_semana`) VALUES
-(2, '2', '2', '1', '2', 'Si', 'Si', 'sdfsf', 'Si', 'nooooo ', 'claro que sii ', 'Si', '3', 'sdfsdf', 'sfsf', 'sfsdf', 'sfd', 'sdf', 'sf', 'sfdf', 'fdsfg', 'adasd', 'adasd', 'Si', 'Si', 'No', '2', 'sdfsf', 'Si', 'fdsfs', 'sdfsdf', 'Si', 'sdf', 'sfsdf', 'sfds', 'ujuleee', 'mtamadreee', 'sadad', 'adad', 'sadasd', 'asdsad', 'Si', 'Si', 'nada en comun tdo normal');
+(2, '2', '2', '1', '2', 'Si', 'Si', 'sdfsf', 'Si', 'nooooo ', 'claro que sii ', 'Si', '3', 'sdfsdf', 'sfsf', 'sfsdf', 'sfd', 'sdf', 'sf', 'sfdf', 'fdsfg', 'adasd', 'adasd', 'Si', 'Si', 'No', '2', 'sdfsf', 'Si', 'fdsfs', 'sdfsdf', 'Si', 'sdf', 'sfsdf', 'sfds', 'ujuleee', 'mtamadreee', 'sadad', 'adad', 'sadasd', 'asdsad', 'Si', 'Si', 'nada en comun tdo normal'),
+(3, '2', '2', '1', 'asxsaxa', 'Si', 'Si', 'asxaxax', 'Si', 'asxasxa', 'xsaxaxa', 'No', 'asxaxax', 'asxaxax', 'xasaxax', 'axasxax', 'asxax', 'saxsax', 'axsx', 'axsaxax', 'xsaxsax', 'xaasxa', 'asxaxsxa', 'Si', 'Si', 'Si', 'axsaxsax', 'saxsaxaxa', 'Si', 'axsxaxas', 'asxaxsx', 'Si', 'saxaxax', 'asxxxasx', 'asxasxsa', 'saxsaxsax', 'asxsaxsax', 'asxsxsax', 'asxsax', 'asxasx', 'saxaxsa', 'No', 'Si', 'asxaxaxxsa');
 
 -- --------------------------------------------------------
 
@@ -89,15 +90,46 @@ INSERT INTO `acta_diabetico` (`id_diabetico`, `comidas_dia`, `comidas_casa`, `co
 CREATE TABLE `administradores` (
   `id_administrador` int(11) NOT NULL,
   `nombre_administrador` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL
+  `password` varchar(60) NOT NULL,
+  `nombre_consultorio` varchar(255) NOT NULL,
+  `direccion_consultorio` varchar(255) NOT NULL,
+  `telefono` varchar(255) NOT NULL,
+  `c.p` varchar(255) NOT NULL,
+  `correo_consultorio` varchar(255) NOT NULL,
+  `telefono_2` varchar(255) NOT NULL,
+  `municipio` varchar(255) NOT NULL,
+  `estado` varchar(255) NOT NULL,
+  `colonia` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `administradores`
 --
 
-INSERT INTO `administradores` (`id_administrador`, `nombre_administrador`, `password`) VALUES
-(1, 'Hector Hugo Vargas Acevedo', 'daniela');
+INSERT INTO `administradores` (`id_administrador`, `nombre_administrador`, `password`, `nombre_consultorio`, `direccion_consultorio`, `telefono`, `c.p`, `correo_consultorio`, `telefono_2`, `municipio`, `estado`, `colonia`) VALUES
+(1, 'Hector Hugo Vargas Acevedo', 'daniela', 'Nutri Saludable', ' Tampico #479', '8343070581', '87018', 'nutrisaludable17@gmail.com', '23471698', 'victoria', 'tamaulipas', 'Industrial'),
+(2, 'grecia karina vargas acevedo', 'grecia12', 'Saludable apple', 'Madero #456', '834306754', '87018', 'nutrisaludable17@gmail.com', '23471698', 'victoria', 'tamaulipas', 'Industrial');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ajustes_color`
+--
+
+CREATE TABLE `ajustes_color` (
+  `id_ajuste` int(11) NOT NULL,
+  `color_head` varchar(255) NOT NULL,
+  `color_text` varchar(255) NOT NULL,
+  `img_consult` varchar(255) NOT NULL,
+  `nombre_administrador` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ajustes_color`
+--
+
+INSERT INTO `ajustes_color` (`id_ajuste`, `color_head`, `color_text`, `img_consult`, `nombre_administrador`) VALUES
+(1, '#ccc', '#fff', '', 'Hector Hugo Vargas Acevedo');
 
 -- --------------------------------------------------------
 
@@ -142,7 +174,8 @@ CREATE TABLE `antecedentes_salud` (
 --
 
 INSERT INTO `antecedentes_salud` (`id_antecedente`, `diarrea`, `estrenimiento`, `gastritis`, `ulcera`, `nausea`, `pirosis`, `vomito`, `colitis`, `dentadura`, `otros`, `observaciones`, `enfermedad_diagnosticada`, `enfermedad_importante`, `medicamento`, `cual`, `dosis`, `desde_cuando`, `laxantes`, `diureticos`, `antiacidos`, `analgesicos`, `cirugia`, `obesidad`, `diabetis`, `hta`, `cancer`, `hipercolesterolemia`, `hipertrigliceridemia`) VALUES
-(2, 'NO', 'NO', 'Si', 'NO', 'Si', 'NO', 'Si', 'NO', 'buena', 'todo en orden', 'no me gusto su dentadura esta un poco deteriorada ', 'Si', 'Si', 'Si', 'nifiripino', '2 pildoras', 'hace 2 mes', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si');
+(2, 'NO', 'NO', 'Si', 'NO', 'Si', 'NO', 'Si', 'NO', 'buena', 'todo en orden', 'no me gusto su dentadura esta un poco deteriorada ', 'Si', 'Si', 'Si', 'nifiripino', '2 pildoras', 'hace 2 mes', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si'),
+(3, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'buena', 'xssa', 'xsaxasxsaxax', 'Si', 'Si', 'Si', 'axxsaxsa', 'xsaxsaxsa', 'xsaxsaxa', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si');
 
 -- --------------------------------------------------------
 
@@ -170,7 +203,8 @@ CREATE TABLE `aspectos_ginecologicos` (
 --
 
 INSERT INTO `aspectos_ginecologicos` (`id_ginecologico`, `embarazo`, `referido_paciente`, `por_fum`, `anticonceptivos_orales`, `cual_anticonceptivo`, `dosis_anticonceptivo`, `climaterio`, `fecha`, `terapia_hormonal`, `cual_hormonal`, `dosis_hormonal`) VALUES
-(2, 'NO', 'dsfsdf', 'Si', 'Si', 'alguno', '5 pildoras diarias', 'clarooooo', '2015-09-18', 'Si', 'ninguna', 'ninguna');
+(2, 'NO', 'dsfsdf', 'Si', 'Si', 'alguno', '5 pildoras diarias', 'clarooooo', '2015-09-18', 'Si', 'ninguna', 'ninguna'),
+(3, 'NO', 'axaxaxas', 'NO', 'Si', 'xasxaxsax', 'asxxsaxsax', 'asxaxaxa', '2016-09-09', 'NO', 'xasxasx', 'asxsaxsaxasx');
 
 -- --------------------------------------------------------
 
@@ -190,7 +224,8 @@ CREATE TABLE `bioquimica` (
 --
 
 INSERT INTO `bioquimica` (`id_bioquimica`, `bioquimico_relevante`, `solicitud_analisis`, `tipo_analisis`) VALUES
-(2, 'si q siii ', 'NO', 'Femenino');
+(2, 'si q siii ', 'NO', 'Femenino'),
+(3, 'axsaxasx', 'Si', 'Masculino');
 
 -- --------------------------------------------------------
 
@@ -223,7 +258,8 @@ CREATE TABLE `dario_actividades` (
 --
 
 INSERT INTO `dario_actividades` (`id_actividad`, `actividad_desayuno`, `actividad_comida`, `actividad_dormir`, `actictividad_diaria`, `tipo_ejercicio`, `frecuencia_ejercicio`, `duracion_ejercicio`, `inicio_ejercicio`, `consumo_alcohol`, `consumo_tabaco`, `consumo_cafe`, `aspecto_general`, `presion_arterial`, `tipo_presion`, `hora_registro`, `brazo_derecho`) VALUES
-(2, 'huevo con migas\r\nun vaso de agua\r\nun cafe', 'carnes rojas\r\nrefresco', 'duermo 3 horas por la tarde', 'ir al trab', 'Casado', '2', '2', '6:00 pm', 'Si', 'Si', 'Si', 'buen aspecto', '6453', 'Alta', '6:00 pm', 'muy bien ');
+(2, 'huevo con migas\r\nun vaso de agua\r\nun cafe', 'carnes rojas\r\nrefresco', 'duermo 3 horas por la tarde', 'ir al trab', 'Casado', '2', '2', '6:00 pm', 'Si', 'Si', 'Si', 'buen aspecto', '6453', 'Alta', '6:00 pm', 'muy bien '),
+(3, 'asxasxa', 'asxsaxsax', 'axsasxsax', 'saxsaxsaxs', 'Casado', 'asxsaxax', 'xsaxaxsax', 'xsaxsax', 'Si', 'Si', 'Si', 'saxaxaxax', 'saxaxsxsax', 'Alta', 'asxxasx', 'asxasxsax');
 
 -- --------------------------------------------------------
 
@@ -252,8 +288,8 @@ CREATE TABLE `datos_personales` (
 --
 
 INSERT INTO `datos_personales` (`id_paciente`, `nombre_paciente`, `edad`, `sexo`, `fecha_nacimiento`, `estado_civil`, `escolaridad`, `ocupacion`, `direccion`, `telefono`, `email`, `motivo_consulta`, `fecha_elaboracion`) VALUES
-(2, 'hector hugo vargas torres', 27, 'Masculino', '1989-03-16', 'Soltero', 'Universidad', 'Licenciado', 'calle tampico #479', '8341472877', 'hector_azul105@hotmail.com', 'obesidad', '2016-06-15'),
-(3, 'grecia karina vargas acevedo', 22, 'Femenino', '1994-01-27', 'Soltero', 'Universidad', 'Licenciado', 'calle tampico #479', '8341472877', 'hugo_vargas60@hotmail.com', 'obesidad', '2016-06-23');
+(2, 'hector hugo vargas torres', 27, 'Masculino', '1989-03-16', 'Soltero', 'Doctorado', 'Licenciado', 'calle tampico #479', '8341472877', 'hectorpaquito1689@gmail.com', 'obesidad', '2016-06-15'),
+(3, 'grecia karina vargas acevedo', 22, 'Femenino', '1994-01-27', 'Soltero', 'Universidad', 'Licenciado', 'calle tampico #479', '8341472877', 'greichaa@gmail.com', 'obesidad', '2016-06-23');
 
 --
 -- Índices para tablas volcadas
@@ -270,6 +306,12 @@ ALTER TABLE `acta_diabetico`
 --
 ALTER TABLE `administradores`
   ADD PRIMARY KEY (`id_administrador`);
+
+--
+-- Indices de la tabla `ajustes_color`
+--
+ALTER TABLE `ajustes_color`
+  ADD PRIMARY KEY (`id_ajuste`);
 
 --
 -- Indices de la tabla `antecedentes_salud`
@@ -309,32 +351,37 @@ ALTER TABLE `datos_personales`
 -- AUTO_INCREMENT de la tabla `acta_diabetico`
 --
 ALTER TABLE `acta_diabetico`
-  MODIFY `id_diabetico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_diabetico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `ajustes_color`
+--
+ALTER TABLE `ajustes_color`
+  MODIFY `id_ajuste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `antecedentes_salud`
 --
 ALTER TABLE `antecedentes_salud`
-  MODIFY `id_antecedente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_antecedente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `aspectos_ginecologicos`
 --
 ALTER TABLE `aspectos_ginecologicos`
-  MODIFY `id_ginecologico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ginecologico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `bioquimica`
 --
 ALTER TABLE `bioquimica`
-  MODIFY `id_bioquimica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_bioquimica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `dario_actividades`
 --
 ALTER TABLE `dario_actividades`
-  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `datos_personales`
 --
